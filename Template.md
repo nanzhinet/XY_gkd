@@ -22,7 +22,7 @@
 - CloudFlare源 (国内可用)
 
   ```txt
-  https://xygkd.pages.dev/gkd.json5
+  https://xy-gkd.pages.dev/gkd.json5
   ```
 
 - GitHub源 (国内需要魔法)

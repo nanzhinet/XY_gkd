@@ -2,5 +2,5 @@
   "id": "999",
   "name": "GKD快捷选择器",
   "description": "用于测试一些全局规则的选择器能否匹配",
-  "selectors": "https://raw.githubusercontent.com/nanzhinet/XY_gkd/refs/heads/main/dist/selectors.subscription.json"
+  "selectors": "https://xy-gkd.pages.dev/selectors.subscription.json"
 }
