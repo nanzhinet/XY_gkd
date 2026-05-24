@@ -34,10 +34,10 @@
 <details>
 <summary>点击展开备用源</summary>
 
-- 暂无
+- Xget源（国内可用）
 
   ```txt
-  暂无
+  https://xget.xi-xu.me/gh/nanzhinet/XY_gkd/raw/main/dist/gkd.json5
   ```
 
 
