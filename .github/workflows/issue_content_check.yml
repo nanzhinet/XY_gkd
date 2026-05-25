@@ -12,7 +12,7 @@ jobs:
           contains(github.event.issue.body, '.zip') == false
         uses: actions/github-script@v9
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             await github.rest.issues.addLabels({
               owner: context.repo.owner,
@@ -30,13 +30,14 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              state: 'closed'
+              state: 'closed',
+              state_reason: 'not_planned'
             });
       - name: 快照链接不可访问时自动标记并提醒
         if: contains(github.event.issue.body, 'i.gkd.li/snapshot/') == true
         uses: actions/github-script@v9
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             await github.rest.issues.addLabels({
               owner: context.repo.owner,
