@@ -121,3 +121,9 @@ jobs:
         with:
           tag_name: v${{ steps.version.outputs.version }}
           files: ${{ steps.attest.outputs.bundle-path }}
+
+  push_to_server:
+      needs: build_release
+      if: ${{ needs.build_release.outputs.version != '' }}
+      uses: ./.github/workflows/push_to_server.yml
+      secrets: inherit
