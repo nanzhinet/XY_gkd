@@ -13,7 +13,7 @@ jobs:
         if: |
           contains(github.event.issue.body, 'i.gkd.li/') == false &&
           contains(github.event.issue.body, '.zip') == false
-        uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@v3.8.0
         with:
           actions: add-labels,create-comment,close-issue
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -24,7 +24,7 @@ jobs:
 
       - name: 快照链接不可访问时自动标记并提醒
         if: contains(github.event.issue.body, 'i.gkd.li/snapshot/') == true
-        uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@v3.8.0
         with:
           actions: add-labels,create-comment
           token: ${{ secrets.GITHUB_TOKEN }}
