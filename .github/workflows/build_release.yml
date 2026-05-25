@@ -107,6 +107,7 @@ jobs:
             dist/xy-gkd-offline-id999-v${{ steps.version.outputs.version }}.json5
 
       - name: 生成构建证明
+        id: attest
         if: ${{ steps.commit.outcome == 'success' }}
         uses: actions/attest-build-provenance@v2
         with:
