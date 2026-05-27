@@ -13,7 +13,7 @@ export default defineGkdApp({
         {
           name: '检测到「上滑继续观看短剧」时自动上滑',
           fastQuery: true,
-          matches: '[vid="ank"][text="上滑继续观看短剧"][visibleToUser=true]',
+          matches: '[text="上滑继续观看短剧"][visibleToUser=true]',
           swipeArg: {
             start: {
               x: 'screenWidth/2',
