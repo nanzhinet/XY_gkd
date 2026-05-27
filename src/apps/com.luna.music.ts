@@ -117,17 +117,26 @@ export default defineGkdApp({
       rules: [
         // 主页界面
         {
-          name: '开屏自动看视频', // 启动App出现的弹窗
+          // 主页界面
+          name: '开屏自动看视频',
           key: 0,
           fastQuery: true,
           activityIds: 'com.luna.biz.main.main.MainActivity',
           actionMaximum: 1,
           priorityTime: 5000,
           resetMatch: 'app',
-          matches:
+          anyMatches: [
             '[vid="ui"] >3 @[clickable=true] < ViewGroup +3 View > [text="今日畅听"] + [text^="第" || text$="个"]',
-          snapshotUrls: 'https://i.gkd.li/i/26758188',
-          exampleUrls: 'https://e.gkd.li/194773d6-a9c0-48c4-84bf-e1a57449434b',
+            '@ViewGroup[childCount=0] < ViewGroup[index=2] <n [childCount=5] <<6 FrameLayout <<4 [id="android:id/content"]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/26758188',
+            'https://i.gkd.li/i/28299711', // 新UI_2026.05.27
+          ],
+          exampleUrls: [
+            'https://e.gkd.li/194773d6-a9c0-48c4-84bf-e1a57449434b',
+            'https://e.gkd.li/9cd0c931-5ae8-4739-8a1a-481d2d5731f4',
+          ],
         },
         // 视频播放界面
         // 旧版节点树(轮询法)
@@ -330,14 +339,22 @@ export default defineGkdApp({
       key: 11,
       name: '局部广告-悬浮窗广告',
       desc: '点击关闭',
+      fastQuery: true,
+      activityIds: 'com.luna.biz.main.main.MainActivity',
       rules: [
         {
-          fastQuery: true,
-          activityIds: 'com.luna.biz.main.main.MainActivity',
+          key: 0,
           matches: '[vid="fl_pendant_container"] > [vid="view_close"]',
           exampleUrls:
             'https://m.gkd.li/57941037/8a427d5f-680b-4562-9cf3-90b1db82df0f',
           snapshotUrls: 'https://i.gkd.li/i/13674376',
+        },
+        {
+          key: 1,
+          matches:
+            '@View[clickable=true][width<126 && height<60] < [childCount=3] <n [childCount=4] < [childCount=3] <2 [childCount=2] <2 [childCount=2] <<3 [vid="navigation_container_under_bottom_bar"]',
+          exampleUrls: 'https://e.gkd.li/42a3884a-6888-4d5b-aa61-7ff5159a5228',
+          snapshotUrls: 'https://i.gkd.li/i/28298866',
         },
       ],
     },
@@ -370,10 +387,18 @@ export default defineGkdApp({
           actionMaximum: 1,
           priorityTime: 5000,
           resetMatch: 'app',
-          matches:
+          anyMatches: [
             '[vid="ui"] >3 @[clickable=true] < ViewGroup +3 View > [text="今日畅听"] + [text^="第" || text$="个"]',
-          snapshotUrls: 'https://i.gkd.li/i/26758188',
-          exampleUrls: 'https://e.gkd.li/194773d6-a9c0-48c4-84bf-e1a57449434b',
+            '@ViewGroup[childCount=0] < ViewGroup[index=2] <n [childCount=5] <<6 FrameLayout <<4 [id="android:id/content"]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/26758188',
+            'https://i.gkd.li/i/28299711', // 新UI_2026.05.27
+          ],
+          exampleUrls: [
+            'https://e.gkd.li/194773d6-a9c0-48c4-84bf-e1a57449434b',
+            'https://e.gkd.li/9cd0c931-5ae8-4739-8a1a-481d2d5731f4',
+          ],
         },
         // 视频播放界面
         // 旧版节点树(轮询法)
@@ -529,16 +554,17 @@ export default defineGkdApp({
           name: '④再看视频?-返回操作',
           fastQuery: true,
           activityIds: 'com.luna.biz.main.main.MainActivity',
-          matches: [
-            '[text$="畅听" || desc$="畅听"]',
+          anyMatches: [
             '[text^="再看" || desc^="再看"][text$="个提前领" || desc$="个提前领"]',
+            '@ViewGroup[childCount=0] <<2 [childCount=4] <<6 FrameLayout <<4 [id="android:id/content"]',
           ],
           action: 'back',
           snapshotUrls: [
             'https://i.gkd.li/i/26411131',
             'https://i.gkd.li/i/26905455',
+            'https://i.gkd.li/i/28299305', // 新UI_2026.05.27
           ],
-          exampleUrls: 'https://e.gkd.li/d3902ed0-5e8d-4c0c-b8ae-5bf3f64c84a8',
+          exampleUrls: 'https://e.gkd.li/6fedf579-d3bc-46eb-b29f-679f469dcfea', //'https://e.gkd.li/d3902ed0-5e8d-4c0c-b8ae-5bf3f64c84a8',
         },
         //其他情况-无视频
         {
